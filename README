@@ -1,0 +1,78 @@
+
+# Network Speed Test and ASN Lookup Script
+
+This Python script performs a network speed test using the `speedtest` CLI and retrieves Autonomous System Numbers (ASN) for the source and destination IP addresses using the `dig` command with Cymru's ASN lookup service. The results, including download and upload speeds, ping latency, jitter, and ASNs, are printed in CSV format.
+
+## Features
+
+- **Dependency Check**: The script checks for the necessary dependencies (`dig` and `speedtest`) before running.
+- **Speed Test**: Utilizes the `speedtest` CLI to measure download and upload speeds, along with ping latency and jitter.
+- **ASN Lookup**: Resolves ASNs for the source and destination IP addresses using reverse DNS queries.
+- **CSV Output**: Outputs the results in a CSV format for easy data handling and analysis.
+
+## Prerequisites
+
+- Python 3.x
+- `speedtest` CLI installed ([Speedtest CLI](https://www.speedtest.net/apps/cli))
+- `dig` command available (commonly found in `dnsutils` package)
+
+## Installation
+
+1. Ensure Python 3.x is installed on your system.
+2. Install the required dependencies:
+   ```bash
+   sudo apt-get install dnsutils
+   ```
+3. Install the `speedtest` CLI:
+   ```bash
+   # For Debian-based systems
+   sudo apt-get install speedtest-cli
+   ```
+
+## Usage
+
+Run the script using Python:
+
+```bash
+python script_name.py
+```
+
+The script will:
+
+1. Check if `dig` and `speedtest` are installed.
+2. Perform a speed test to measure download/upload speeds, ping latency, and jitter.
+3. Retrieve ASNs for the source and destination IP addresses.
+4. Output the results in CSV format to the terminal.
+
+## Output
+
+The output includes the following fields:
+
+- Date and time of the speed test
+- Source IP address
+- Destination IP address
+- Source ASN
+- Destination ASN
+- Download speed (Mbps)
+- Upload speed (Mbps)
+- Ping latency (ms)
+- Ping jitter (ms)
+
+## Error Handling
+
+- If any dependencies are missing, the script will notify you and exit.
+- The script provides detailed error messages if there are issues with running the speed test or retrieving ASNs.
+
+## Example Output
+
+```
+2024-09-07T12:34:56Z,192.0.2.1,198.51.100.1,12345,67890,85.67,20.45,12.3,2.1
+```
+
+## Contributing
+
+Feel free to contribute by submitting pull requests or opening issues for bugs and feature requests.
+
+## License
+
+This project is licensed under the MIT License.
